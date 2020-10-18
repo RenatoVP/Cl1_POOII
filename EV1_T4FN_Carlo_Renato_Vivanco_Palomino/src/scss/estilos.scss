@@ -1,0 +1,15 @@
+﻿@import 'utils/_dimentions.scss';
+
+@import 'components/Margin_Padding_Bootstrap.scss';
+@import 'components/_menubar.scss';
+
+$kentucky-bar: lighten(red, 10);
+
+.kentucky-bg-bar{
+    background-color: $kentucky-bar;
+}
+
+.button-action{
+    @include margin-y(30px 25px);
+    border: 1px solid darken(#fff, 30);
+}

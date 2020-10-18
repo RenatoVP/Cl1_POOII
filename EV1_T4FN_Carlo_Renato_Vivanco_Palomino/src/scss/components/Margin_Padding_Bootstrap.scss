@@ -1,0 +1,59 @@
+﻿@for $i from 1 through 5 {
+    .m-#{$i} {
+        margin: #{$i * 5}px;
+    }
+
+    .mt-#{$i} {
+        margin-top: #{$i * 5}px;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: #{$i * 5}px;
+    }
+
+    .mr-#{$i} {
+        margin-right: #{$i * 5}px;
+    }
+
+    .ml-#{$i} {
+        margin-left: #{$i * 5}px;
+    }
+
+    .mx-#{$i} {
+        @include margin-x($i * 5px);
+    }
+
+    .my-#{$i} {
+        @include margin-y($i * 5px);
+    }
+}
+
+@for $i from 1 through 5 {
+    .p-#{$i} {
+        padding: #{$i * 5}px;
+    }
+
+    .pt-#{$i} {
+        padding-top: #{$i * 5}px;
+    }
+
+    .pb-#{$i} {
+        padding-bottom: #{$i * 5}px;
+    }
+
+    .pr-#{$i} {
+        padding-right: #{$i * 5}px;
+    }
+
+    .pl-#{$i} {
+        padding-left: #{$i * 5}px;
+    }
+
+    .px-#{$i} {
+        @include padding-x($i * 5px);
+    }
+
+    .py-#{$i} {
+        @include padding-y($i * 5px);
+    }
+}

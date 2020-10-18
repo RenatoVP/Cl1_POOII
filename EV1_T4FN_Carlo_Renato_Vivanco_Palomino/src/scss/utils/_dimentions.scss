@@ -1,0 +1,31 @@
+﻿@mixin margin_padding($type, $position, $values) {
+    ///- Ambas tendran el mismo valor
+    @if length($values) < 2 {
+        #{$type}-#{nth($position, 1)}: nth($values, 1);
+        #{$type}-#{nth($position, 2)}: nth($values, 1);
+    }
+    /// Tendran un valor distinto
+    @else if length($values) > 1 and length($values) < 3 {
+        #{$type}-#{nth($position, 1)}: nth($values, 1);
+        #{$type}-#{nth($position, 2)}: nth($values, 2);
+    }
+    /// Si el usuario pasa el limite de valores
+    @else {
+        @error 'Has excedido el numero de valores';
+    }
+}
+@mixin padding-x($values){
+    @include margin_padding("padding",left right, $values);
+}
+
+@mixin padding-y($values){
+    @include margin_padding("padding",top bottom, $values);
+}
+
+@mixin margin-x($values){
+    @include margin_padding("margin", left right, $values);
+}
+
+@mixin margin-y($values){
+    @include margin_padding("margin", top bottom, $values);
+}

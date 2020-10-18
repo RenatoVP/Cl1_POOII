@@ -1,0 +1,79 @@
+@mixin hover-focus(){
+    &:hover,
+    &:focus{
+        @content;
+    }
+}
+//Menu de navegacion (interfaz grafica)
+.menubar{
+    width: 100%;
+    line-height: 3;
+
+    &,
+    .menu,
+    .menu-start,
+    .menu-end{
+        display: flex;
+    }
+
+    .menu-item,
+    .menu-item-dropdown{
+        list-style: none;
+        padding:  0 1.5em;
+    }
+    
+    //Items del Menu de Navegacion
+    .menubar-brand{ /* Elemento principal del menu de navegacion(titulo)*/
+        color: blue;
+        font-size: 20px;
+        padding: 0 1.5em;
+    }
+
+    .menu{ /*Encapsula los menu-items*/
+        align-items: center;
+        flex-grow: 1;
+
+        .menu-start{
+            justify-content: flex-start;
+            margin-right: auto;
+        }
+
+        .menu-end{
+            justify-content: flex-end;
+            margin-left: auto;
+        }
+        
+        .menu-child{ /*Menu Secondario y desplegable que contendra subitems*/
+            position: absolute;
+            transform-origin: top center;
+            transform: scale(1, 0);
+            transition: transform .3s;
+
+            ul{
+                top: 0;
+                left: 100%;
+            }
+        }
+    }
+
+    /*.menu-item{ /*Elemento menu-item
+        
+    }*/
+
+    .menu-link{ /*Elemento menu-link*/ 
+        display: block;
+        color: white;
+
+        @include hover-focus(){
+            opacity: .8;
+        }
+    }
+
+    .menu-item-dropdown{/* este elemento encapsula subitems*/
+        position: relative;
+
+        &:hover > .menu-child{
+            transform: scale(1, 1);
+        }
+    }
+}
